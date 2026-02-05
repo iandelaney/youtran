@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XP YouTube Transcriber</title>
+  <link rel="stylesheet" href="xp.css" />
+</head>
+<body>
+  <div class="desktop">
+    <div class="window">
+      <div class="titlebar">
+        <div class="title-left">
+          <div class="win-icon"></div>
+          <div class="title">XP YouTube Transcriber</div>
+        </div>
+        <div class="win-buttons" aria-hidden="true">
+          <div class="btn min">_</div>
+          <div class="btn max">▢</div>
+          <div class="btn close">✕</div>
+        </div>
+      </div>
+
+      <div class="menubar">
+        <span class="menu"><u>F</u>ile</span>
+        <span class="menu"><u>E</u>dit</span>
+        <span class="menu"><u>V</u>iew</span>
+        <span class="menu"><u>H</u>elp</span>
+      </div>
+
+      <div class="content">
+        <div class="group">
+          <div class="group-title">YouTube Video</div>
+
+          <label class="lbl" for="ytUrl">URL or Video ID:</label>
+          <div class="row">
+            <input id="ytUrl" class="textbox" placeholder="https://www.youtube.com/watch?v=..." />
+            <button id="btnFetch" class="xpbtn primary">Get Transcript</button>
+          </div>
+
+          <div class="row row2">
+            <div class="inline">
+              <label class="lbl2" for="lang">Language:</label>
+              <select id="lang" class="select">
+                <option value="en" selected>en</option>
+                <option value="en-US">en-US</option>
+                <option value="en-GB">en-GB</option>
+                <option value="es">es</option>
+                <option value="fr">fr</option>
+                <option value="de">de</option>
+                <option value="it">it</option>
+                <option value="pt">pt</option>
+                <option value="nl">nl</option>
+              </select>
+            </div>
+
+            <div class="inline status" id="status">Ready.</div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="plain">Plain Text</button>
+          <button class="tab" data-tab="timestamps">Timestamps</button>
+          <button class="tab" data-tab="srt">SRT</button>
+        </div>
+
+        <div class="panel">
+          <textarea id="outPlain" class="textarea show" data-panel="plain" spellcheck="false"></textarea>
+
+          <div id="outTimestamps" class="timestamps" data-panel="timestamps">
+            <div class="ts-head">
+              <div>#</div><div>Time</div><div>Text</div>
+            </div>
+            <div class="ts-body" id="tsBody"></div>
+          </div>
+
+          <textarea id="outSrt" class="textarea" data-panel="srt" spellcheck="false"></textarea>
+        </div>
+
+        <div class="footer">
+          <button id="btnCopy" class="xpbtn">Copy</button>
+          <button id="btnDownload" class="xpbtn">Download .txt</button>
+          <button id="btnClear" class="xpbtn">Clear</button>
+          <div class="spacer"></div>
+          <div class="hint">Tip: paste a URL, choose language, click “Get Transcript”.</div>
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <div class="sb-left" id="sbLeft">Not connected</div>
+        <div class="sb-right" id="sbRight">localhost</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="xp.js"></script>
+</body>
+</html>
